@@ -1,0 +1,6 @@
+venv*
+uploads*
+postgres_db*
+mongo_db*
+nginx*
+static*

@@ -1,0 +1,7 @@
+Django == 2.2.5
+djangorestframework == 3.10.2
+djangorestframework-simplejwt == 4.3.0
+psycopg2-binary == 2.8.3
+pymongo == 3.9.0
+django-cors-headers == 3.1.0
+pillow == 6.1.0
