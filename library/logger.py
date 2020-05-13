@@ -1,14 +1,13 @@
 import logging
 import os
 
-from . import config
-
-formatter = logging.Formatter(config.DEFAULT_LOGGER_FORMAT, config.LOGGER_TIME_FORMAT)
-handler = logging.StreamHandler()
-handler.setFormatter(formatter)
-
 
 def get_logger(module_name):
+    default_logger_format = '%(levelname)s:[%(asctime)s] [%(pathname)s:%(lineno)d] - %(message)s'
+    logger_time_format = '%d-%m-%Y %H:%M:%S'
+    formatter = logging.Formatter(default_logger_format, logger_time_format)
+    handler = logging.StreamHandler()
+    handler.setFormatter(formatter)
     logger = logging.getLogger(module_name)
     logger.setLevel(int(os.environ.get('LOG_LEVEL', logging.DEBUG)))
     logger.addHandler(handler)

@@ -1,0 +1,8 @@
+uwsgi:
+  socket: :8000
+  vacuum: true
+  processes: 4
+  module: library.wsgi:application
+  chdir: /library/
+  master: true
+  max-requests: 5000
