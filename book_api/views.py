@@ -6,8 +6,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.request import Request
 
-from library_api import models
-from library_api import serializers
+from book_api import models
+from book_api import serializers
 
 logger = logger.get_logger(__name__)
 

@@ -7,7 +7,7 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('library_api', '0003_book_short_description'),
+        ('book_api', '0003_book_short_description'),
     ]
 
     operations = [

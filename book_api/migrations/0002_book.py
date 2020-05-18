@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('library_api', '0001_initial'),
+        ('auth', '0011_update_proxy_permissions'),
     ]
 
     operations = [

@@ -26,7 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'library_api.apps.LibraryApiConfig',
+    'book_api.apps.BookApiConfig',
+    'user_api.apps.UserApiConfig',
+    'token_api.apps.TokenApiConfig',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders'
@@ -122,7 +124,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/api/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '')
 
-AUTH_USER_MODEL = 'library_api.User'
+AUTH_USER_MODEL = 'user_api.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
