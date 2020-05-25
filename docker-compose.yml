@@ -1,54 +1,38 @@
 version: '3'
 services:
   app:
-    restart: always
-    build: .
+    image: 276444395597.dkr.ecr.eu-central-1.amazonaws.com/library_app
+    build:
+      dockerfile: ./Dockerfile
+      context: .
     command: ./run.sh
-    ports:
-      - "8000:8000"
-    networks:
-      - test
-    env_file:
-      - variables.env
-    depends_on:
-      - postgres
-      - mongo
-    volumes:
-      - ./:/library
-      - ./static:/library/static
-
-  mongo:
-    image: mongo:4.2-bionic
-    restart: always
-    volumes:
-      - ./mongo_db/:/data/db
-    networks:
-      - test
-
-  postgres:
-    image: postgres:11.5
-    restart: always
-    volumes:
-      - ./postgres_db:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    env_file:
-      - variables.env
-    networks:
-      - test
 
   nginx:
-    image: nginx:latest
+    image: 276444395597.dkr.ecr.eu-central-1.amazonaws.com/library_nginx
+    build:
+      dockerfile: ./Dockerfile
+      context: ./nginx
     ports:
-      - "80:80"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - ./uploads:/uploads
-      - ./static:/static
-    networks:
-      - test
-    depends_on:
-      - app
+    - "80:80"
 
-networks:
-  test:
+#  mongo:
+#    image: mongo:4.2-bionic
+#    restart: always
+#    volumes:
+#      - ./mongo_db/:/data/db
+#    networks:
+#      - library
+#    ports:
+#      - "27017:27017"
+#
+#  postgres:
+#    image: postgres:11.5
+#    restart: always
+#    volumes:
+#      - ./postgres_db:/var/lib/postgresql/data
+#    ports:
+#      - "5432:5432"
+#    env_file:
+#      - variables.env
+#    networks:
+#      - library

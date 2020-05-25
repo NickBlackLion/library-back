@@ -6,3 +6,4 @@ venv/
 create_user.sh
 static/
 uploads/
+*local*

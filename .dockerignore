@@ -4,3 +4,9 @@ postgres_db*
 mongo_db*
 nginx*
 static*
+terraform*
+.editorconfig
+.gitignore
+docker-compose.yml
+Dockerfile
+Jenkinsfile
